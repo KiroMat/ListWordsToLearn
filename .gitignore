@@ -2,4 +2,6 @@
 **/obj
 **/Temp/*
 **/Library/*
-/.vs/*
+**/.vs/*
+/ListWordsToLearn/packages
+/ListWordsToLearn/Assets/lib/*.*

@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2017
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ListWordsToLearn", "ListWordsToLearn.csproj", "{05CE411B-F43F-5C20-7350-D6781C45549B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ListWordsToLearn.Common", "ListWordsToLearn.Common\ListWordsToLearn.Common.csproj", "{4191BFE5-85D2-4470-93B2-9FACA8BC8A90}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LiteDBCommons", "LiteDBCommons\LiteDBCommons.csproj", "{017CD7A4-8BE1-4ECC-8DF0-B663982D61F3}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{05CE411B-F43F-5C20-7350-D6781C45549B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{05CE411B-F43F-5C20-7350-D6781C45549B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{05CE411B-F43F-5C20-7350-D6781C45549B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{05CE411B-F43F-5C20-7350-D6781C45549B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4191BFE5-85D2-4470-93B2-9FACA8BC8A90}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4191BFE5-85D2-4470-93B2-9FACA8BC8A90}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4191BFE5-85D2-4470-93B2-9FACA8BC8A90}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4191BFE5-85D2-4470-93B2-9FACA8BC8A90}.Release|Any CPU.Build.0 = Release|Any CPU
+		{017CD7A4-8BE1-4ECC-8DF0-B663982D61F3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{017CD7A4-8BE1-4ECC-8DF0-B663982D61F3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{017CD7A4-8BE1-4ECC-8DF0-B663982D61F3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{017CD7A4-8BE1-4ECC-8DF0-B663982D61F3}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
