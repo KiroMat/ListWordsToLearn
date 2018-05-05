@@ -9,8 +9,9 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>LiteDBCommons</RootNamespace>
     <AssemblyName>LiteDBCommons</AssemblyName>
-    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -57,7 +58,7 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>copy "$(ProjectDir)bin\Debug\LiteDB.dll" "$(ProjectDir)..\Assets\lib\"
-copy "$(ProjectDir)bin\Debug\LiteDBCommons.dll" "$(ProjectDir)..\Assets\lib\"</PostBuildEvent>
+    <PostBuildEvent>copy "$(ProjectDir)bin\Debug\LiteDB.dll" "$(ProjectDir)..\Assets\dll\"
+copy "$(ProjectDir)bin\Debug\LiteDBCommons.dll" "$(ProjectDir)..\Assets\dll\"</PostBuildEvent>
   </PropertyGroup>
 </Project>

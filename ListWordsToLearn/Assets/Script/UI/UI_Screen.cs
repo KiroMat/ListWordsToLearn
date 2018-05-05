@@ -10,8 +10,8 @@ namespace Assets.Script.UI
     [RequireComponent(typeof(CanvasGroup))]
     public class UI_Screen : MonoBehaviour
     {
-        [Header("Main properties")]
-        public Selectable m_StartSelectable;
+        //[Header("Main properties")]
+        //public Selectable m_StartSelectable;
 
         [Header("Screen events")]
         public UnityEvent onScreenStart = new UnityEvent();
@@ -23,10 +23,10 @@ namespace Assets.Script.UI
         {
             animator = GetComponent<Animator>();
 
-            if(m_StartSelectable)
-            {
-                EventSystem.current.SetSelectedGameObject(m_StartSelectable.gameObject);
-            }
+            //if(m_StartSelectable)
+            //{
+            //    EventSystem.current.SetSelectedGameObject(m_StartSelectable.gameObject);
+            //}
         }
 
         public virtual void StartScreen()

@@ -57,7 +57,7 @@ namespace Assets.Script.UI
         {
             foreach (var screen in screens)
             {
-                screen.gameObject.SetActive(true);
+                screen.gameObject.SetActive(false);
             }
         }
 
@@ -69,6 +69,7 @@ namespace Assets.Script.UI
                 {
                     currentScreen.CloseScreen();
                     previousScreen = currentScreen;
+                    previousScreen.gameObject.SetActive(false);
                 }
 
                 currentScreen = screen;
