@@ -50,13 +50,13 @@ namespace Assets.Script.UI
                 ele.NameList = elemlist.NameListOfWords;
                 ele.ID = elemlist.ID;
                 ele.onDelete = (e) => {
-                    allListRepo.DropCollection(e.NameList);
-                    var temp = allListRepo.GetById(e.ID);
-                    allListRepo.Remove(temp);
-                    RefreshList();
+                        FindObjectOfType<MessageBox>().ShowYesNoWindow($"Czy napewno usuną liste o nazwie: {e.NameList}?", () => RemoveItemFromList(e));
                     };
                 ele.onEdit = (e) => GoToListView(e.ID);
             }
+            Vector2 vec = Container.GetComponent<RectTransform>().sizeDelta;
+            vec.y = templetaElementList.GetComponent<RectTransform>().rect.height * allList.Count;
+            Container.GetComponent<RectTransform>().sizeDelta = vec;
         }
 
         private void AddNewListToDb()
@@ -88,6 +88,14 @@ namespace Assets.Script.UI
             {
                 Destroy(listCilds[i].gameObject);
             }
+        }
+
+        private void RemoveItemFromList(ListElement item)
+        {
+            allListRepo.DropCollection(item.NameList);
+            var temp = allListRepo.GetById(item.ID);
+            allListRepo.Remove(temp);
+            RefreshList();
         }
     }
 }

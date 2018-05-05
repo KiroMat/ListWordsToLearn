@@ -137,11 +137,11 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 38
+    m_FontSize: 50
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 10
-    m_MaxSize: 42
+    m_MaxSize: 51
     m_Alignment: 1
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -228,18 +228,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88d4de21666db4141aea1551c9f80d06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ShowingText: {fileID: 0}
-  onClickYes:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
-  onClickNo:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
-  TextToShow: 
+  ShowTextObject: {fileID: 114011012592774450}
+  Confirm_Button: {fileID: 114614958465802462}
+  Cancel_Button: {fileID: 114226591517328494}
 --- !u!114 &114307006008233946
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -252,7 +243,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.24437715, g: 0.26324424, b: 0.29411763, a: 0.617}
+  m_Color: {r: 0.24437715, g: 0.26324424, b: 0.29411763, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -472,10 +463,10 @@ RectTransform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchorMin: {x: 0, y: 0.5}
+  m_AnchorMax: {x: 1, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 150.6}
+  m_SizeDelta: {x: 0, y: 615.9}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224573392125066858
 RectTransform:
@@ -509,10 +500,10 @@ RectTransform:
   m_Father: {fileID: 224373599103413428}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -19.8, y: -27}
-  m_SizeDelta: {x: -198, y: 159.7}
+  m_AnchorMin: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchoredPosition: {x: 0, y: -50}
+  m_SizeDelta: {x: 882, y: 319.4}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!224 &224612630914831750
 RectTransform:

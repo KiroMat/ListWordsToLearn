@@ -115,7 +115,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1592789487223270
 GameObject:
   m_ObjectHideFlags: 1
@@ -447,8 +447,6 @@ MonoBehaviour:
   Cancel_Button: {fileID: 114569857367118634}
   InputTextObject: {fileID: 114443325176465672}
   returnText: 
-  TextToShowing: 
-  IsReady: 0
 --- !u!114 &114808464823245630
 MonoBehaviour:
   m_ObjectHideFlags: 1

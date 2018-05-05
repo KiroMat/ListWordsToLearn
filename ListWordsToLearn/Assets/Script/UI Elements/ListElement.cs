@@ -25,9 +25,6 @@ namespace Assets.Script.UI_Elements
             EditListButtom.onClick.AddListener(() => onEdit.Invoke(this));
             DisplayedText.text = NameList;
         }
-
-
-
     }
 }
 

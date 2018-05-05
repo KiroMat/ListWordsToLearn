@@ -19,6 +19,11 @@ namespace Assets.Script.UI_Elements
             InputWindow.ShowWindow(text, action);
         }
 
+        public void ShowYesNoWindow(string text, Action action)
+        {
+            YesNoWindow.ShowWindow(text, action);
+        }
+
         private void Initialized()
         {
             var allWindows = GetComponentsInChildren<ModalWindow>();
