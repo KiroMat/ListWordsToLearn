@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
@@ -31,6 +32,8 @@ namespace Assets.Script.UI
         {
             get { return previousScreen; }
         }
+
+        private List<UI_Screen> previousS = new List<UI_Screen>(5);
 
 
 
@@ -68,8 +71,8 @@ namespace Assets.Script.UI
                 if (currentScreen)
                 {
                     currentScreen.CloseScreen();
-                    previousScreen = currentScreen;
-                    previousScreen.gameObject.SetActive(false);
+                    currentScreen.gameObject.SetActive(false);
+                    AddPreviousScreen(currentScreen);
                 }
 
                 currentScreen = screen;
@@ -101,10 +104,7 @@ namespace Assets.Script.UI
 
         public void GoToPreviouseScreen()
         {
-            if (previousScreen)
-            {
-                SwitchScreen(previousScreen);
-            }
+            SwitchScreen(GetPreviousScreen());
         }
 
         public void LoadScene(int sceneIndex)
@@ -120,6 +120,27 @@ namespace Assets.Script.UI
         IEnumerator WaitToLoadScene(int sceneIndex)
         {
             yield return null;
+        }
+
+        private void AddPreviousScreen(UI_Screen screen)
+        {
+            if (previousS.Count < 5)
+                previousS.Add(screen);
+            else
+            {
+                previousS.RemoveAt(0);
+                previousS.Add(screen);
+            }
+        }
+
+        private UI_Screen GetPreviousScreen()
+        {
+            if (previousS.Count <= 0)
+                return m_Start;
+
+            var screen = previousS[previousS.Count - 1];
+            previousS.RemoveAt(previousS.Count - 1);
+            return screen;
         }
     }
 }

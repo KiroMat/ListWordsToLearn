@@ -154,7 +154,7 @@ PlayerSettings:
   applicationIdentifier:
     Android: com.JGSoftware.LWTL
   buildNumber: {}
-  AndroidBundleVersionCode: 5
+  AndroidBundleVersionCode: 9
   AndroidMinSdkVersion: 16
   AndroidTargetSdkVersion: 25
   AndroidPreferredInstallLocation: 1

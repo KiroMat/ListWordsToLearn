@@ -1,42 +1,45 @@
 ﻿using Assets.Script.Factories;
-using Assets.Script.UI_Elements;
+using Assets.Script.UI;
 using ListWordsToLearn.Common.DB;
 using ListWordsToLearn.Common.DB.Model;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using System;
 using UnityEngine.UI;
 
-namespace Assets.Script.UI
+namespace Assets.Script.UI_Elements
 {
-    public class YourLists_Screen : UI_Screen
+    public class WordsInList_Screen : UI_Screen
     {
-        public ListElement templetaElementList;
         public GameObject Container;
-        public Button AddNewListButton;
-        public WordsInList_Screen screenList;
+        public ListElement templetaElementList;
+        public Button AddButton;
+        public string NameOfList;
+        public DetailsWord_Screen DetailsScreen;
+        public Text MainText;
 
-        IRepositoryDB<NameList> allListRepo;
+        IRepositoryDB<WordDetailModel> allListRepo;
 
         public override void StartScreen()
         {
             base.StartScreen();
-            allListRepo = RepositoryFactory.GetRepozytory<NameList>();
-            
-            AddNewListButton.onClick.AddListener(() => { AddNewListToDb(); });
+            MainText.text = NameOfList;
+            AddButton.onClick.AddListener(() => AddNewword());
+            allListRepo = RepositoryFactory.GetRepozytory<WordDetailModel>(NameOfList.Replace(' ', '_'));
             RefreshList();
-        }
-
-        public void GoToListView(string nameList)
-        {
-            screenList.NameOfList = nameList;
-            FindObjectOfType<UI_System>().SwitchScreen(screenList);
         }
 
         public override void CloseScreen()
         {
             base.CloseScreen();
+        }
+
+        public void GoToCheckWords(CheckWord_Screen screen)
+        {
+            screen.NameList = NameOfList;
+            FindObjectOfType<UI_System>().SwitchScreen(screen);
         }
 
         private void RefreshList()
@@ -49,31 +52,25 @@ namespace Assets.Script.UI
             {
                 var ele = Instantiate(templetaElementList);
                 ele.transform.SetParent(Container.transform);
-                ele.NameList = elemlist.NameListOfWords;
+                ele.NameList = elemlist.NameWordPl;
                 ele.ID = elemlist.ID;
                 ele.onDelete = (e) => {
-                        FindObjectOfType<MessageBox>().ShowYesNoWindow($"Czy napewno usuną liste o nazwie: {e.NameList}?", () => RemoveItemFromList(e));
-                    };
-                ele.onEdit = (e) => GoToListView(e.NameList);
+                    FindObjectOfType<MessageBox>().ShowYesNoWindow($"Czy napewno usuną słówko: {e.NameList}?", () => RemoveItemFromList(e));
+                };
+                ele.onEdit = (e) => GoToDetailView(e.ID);
             }
             Vector2 vec = Container.GetComponent<RectTransform>().sizeDelta;
             vec.y = templetaElementList.GetComponent<RectTransform>().rect.height * allList.Count;
             Container.GetComponent<RectTransform>().sizeDelta = vec;
         }
 
-        private void AddNewListToDb()
+        private void GoToDetailView(int id)
         {
-            var messageBox = FindObjectOfType<MessageBox>();
-            messageBox.ShowInputWindow("Proszę podać nazwę nowej listy", AfterConfirmNewList);
-        }
-
-        private void AfterConfirmNewList(string name)
-        {
-            if(!string.IsNullOrEmpty(name))
-            {
-                allListRepo.Insert(new NameList() { NameListOfWords = name });
-                RefreshList();
-            }
+            DetailsScreen.IdItem = id;
+            DetailsScreen.NameList = NameOfList;
+            DetailsScreen.isEdit = true;
+            DetailsScreen.OwnerListScreen = this;
+            FindObjectOfType<UI_System>().SwitchScreen(DetailsScreen);
         }
 
         private void ClearList()
@@ -86,7 +83,7 @@ namespace Assets.Script.UI
 
             Container.transform.DetachChildren();
 
-            for (int i = listCilds.Count-1; i >= 0; i--)
+            for (int i = listCilds.Count - 1; i >= 0; i--)
             {
                 Destroy(listCilds[i].gameObject);
             }
@@ -94,10 +91,19 @@ namespace Assets.Script.UI
 
         private void RemoveItemFromList(ListElement item)
         {
-            allListRepo.DropCollection(item.NameList);
             var temp = allListRepo.GetById(item.ID);
             allListRepo.Remove(temp);
             RefreshList();
         }
+
+        private void AddNewword()
+        {
+            DetailsScreen.isEdit = false;
+            DetailsScreen.NameList = NameOfList;
+            DetailsScreen.OwnerListScreen = this;
+            FindObjectOfType<UI_System>().SwitchScreen(DetailsScreen);
+        }
+
     }
 }
+

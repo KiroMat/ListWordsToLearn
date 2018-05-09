@@ -46,6 +46,8 @@
     <Compile Include="DB\BaseModel.cs" />
     <Compile Include="DB\IRepositoryDB.cs" />
     <Compile Include="DB\Model\NameList.cs" />
+    <Compile Include="DB\Model\WordDetailModel.cs" />
+    <Compile Include="Extensions\ListExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -228,11 +228,14 @@
   <ItemGroup>
     <Compile Include="Assets\Script\Factories\RepositoryFactory.cs" />
     <Compile Include="Assets\Script\Setting.cs" />
+    <Compile Include="Assets\Script\UI Elements\DetailsWord_Screen.cs" />
     <Compile Include="Assets\Script\UI Elements\ListElement.cs" />
     <Compile Include="Assets\Script\UI Elements\MessageBox.cs" />
     <Compile Include="Assets\Script\UI Elements\ModalWindow.cs" />
     <Compile Include="Assets\Script\UI Elements\ModalWindowInput.cs" />
     <Compile Include="Assets\Script\UI Elements\ModalWindowYesNo.cs" />
+    <Compile Include="Assets\Script\UI Elements\WordsInList_Screen.cs" />
+    <Compile Include="Assets\Script\UI\CheckWord_Screen.cs" />
     <Compile Include="Assets\Script\UI\UI_Screen.cs" />
     <Compile Include="Assets\Script\UI\UI_System.cs" />
     <Compile Include="Assets\Script\UI\UI_WaitingScreen.cs" />
